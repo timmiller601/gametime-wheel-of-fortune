@@ -10,18 +10,18 @@ class Game {
     this.puzzles = [];
     this.wheels = [];
     this.players = [];
-    this.currentPlayer = 0;
+    this.currentPlayer = -1;
   }
 
-  changePlayer(){
+  // changePlayer(){
 
-    console.log('in change player');
-    this.playerTurn++;
-    // switch(this.playerTurn) 
-    // case 2: 
-    // this.playerTurn = 0;
-    // if()
-  }
+  //   console.log('in change player');
+  //   this.playerTurn++;
+  //   // switch(this.playerTurn) 
+  //   // case 2: 
+  //   // this.playerTurn = 0;
+  //   // if()
+  // }
 
   startGame() {
     domUpdates.hideStartScreen();
@@ -33,12 +33,12 @@ class Game {
     this.createPuzzles(puzzles);
     this.createWheels(wheels);
     domUpdates.changePuzzle();
-  }
-
-  startRound() {
     this.updatePlayerTurn();
-
   }
+
+  // startRound() {
+
+  // }
 
   createPlayers(names) {
     let player1 = new Player(names[0]);
