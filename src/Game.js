@@ -113,9 +113,12 @@ class Game {
   }
 
 
-updateRound(passValue) {
-    domUpdates.displayScore(passValue);
-  }
+  updateScore(passValue) {
+    let currentScore = this.players[this.currentPlayer].roundScore += passValue;
+    console.log(this.players[this.currentPlayer].roundScore, this.players[this.currentPlayer].name);
+    console.log(this.currentPlayer);
+    domUpdates.displayScore(currentScore);
+  } 
 
 }
 export default Game; 

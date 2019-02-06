@@ -8,6 +8,7 @@ class Player {
     this.totalScore = totalScore;
   }
 
+
   // updateRoundScore(passValue) {
   //   console.log("update round score fired");
   //   domUpdates.displayScore(passValue);

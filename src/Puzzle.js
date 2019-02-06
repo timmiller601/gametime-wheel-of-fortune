@@ -30,7 +30,7 @@ class Puzzle {
       domUpdates.changeLetter(letter);
       domUpdates.correctMessage();
       let passValue = 150;
-      game.updateRound(passValue);
+      game.updateScore(passValue);
     } else {
       domUpdates.wrongLetter(letter);
       game.updatePlayerTurn();

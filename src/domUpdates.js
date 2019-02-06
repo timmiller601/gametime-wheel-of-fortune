@@ -35,6 +35,7 @@ export default {
     });
     let category = game.puzzles[0].category;
     $('.category').text(category); 
+    console.log(game.puzzles[0].answer);
   },
 
   clearInput() {
@@ -53,11 +54,14 @@ export default {
     $('.pop-up-message').text('That\'s correct! It\'s still your turn. Spin the wheel, buy a vowel if you can afford it, or solve the puzzle')
   },
 
-  displayScore(passValue) {
-    game.players[game.playerTurn].roundScore += passValue;
-    console.log(game.players[game.playerTurn].roundScore);
-    console.log(game.players[game.playerTurn].name);
+  displayScore(currentScore) {
+    console.log(currentScore);
+    console.log(game.currentPlayer);
+    $(`#${game.currentPlayer} .round-score span`).text(currentScore);
     
+    
+    // $('.player').removeClass('current-player');
+    // $(`#${playerIndex}`).addClass('current-player');
 
     // console.log($('#player1-name').text());
 
