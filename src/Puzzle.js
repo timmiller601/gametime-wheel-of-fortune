@@ -1,4 +1,6 @@
 import domUpdates from './domUpdates.js';
+import Player from './Player.js';
+import Game from './Game.js';
 import $ from 'jquery';
 
 class Puzzle {
@@ -26,9 +28,13 @@ class Puzzle {
     }
     if (array.includes(letter)) {
       domUpdates.changeLetter(letter);
+      domUpdates.correctMessage();
+      let passValue = 150;
+      game.updateRound(passValue);
     } else {
       domUpdates.wrongLetter(letter);
-      game.trackPlayerTurn();
+      game.changePlayer();
+
     }
   }
 

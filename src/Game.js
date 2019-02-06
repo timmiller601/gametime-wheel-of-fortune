@@ -10,6 +10,17 @@ class Game {
     this.puzzles = [];
     this.wheels = [];
     this.players = [];
+    this.playerTurn = 0;
+  }
+
+  changePlayer(){
+
+    console.log('in change player');
+    this.playerTurn++;
+    // switch(this.playerTurn) 
+    // case 2: 
+    // this.playerTurn = 0;
+    // if()
   }
 
   startGame() {
@@ -33,7 +44,9 @@ class Game {
     let player1 = new Player(names[0]);
     let player2 = new Player(names[1]);
     let player3 = new Player(names[2]);
-    this.players = [player1, player2, player3];
+    this.players.push(player1);
+    this.players.push(player2);
+    this.players.push(player3);
   }
 
   createPuzzles(puzzles) {
@@ -97,6 +110,7 @@ class Game {
     this.currentPlayer();
   }
 
+
   previousPlayer() {
     domUpdates.unhighlightCurrentPlayer(this.players[0].name);
   }
@@ -107,6 +121,10 @@ class Game {
     domUpdates.highlightCurrentPlayer(this.players[2].name);
   }
 
+
+updateRound(passValue) {
+    domUpdates.displayScore(passValue);
+  }
 
 }
 export default Game; 

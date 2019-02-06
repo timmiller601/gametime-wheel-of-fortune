@@ -4,7 +4,7 @@
 // import Game from './Game.js';
 // import Player from './Player.js';
 // import Wheel from './Wheel.js';
-// import Puzzle from './Puzzle.js';
+import Puzzle from './Puzzle.js';
 import $ from 'jquery';
 
 
@@ -37,6 +37,10 @@ export default {
     $('.category').text(category); 
   },
 
+  clearInput() {
+    $(':input').val("");
+  },
+
   changeLetter(letter) {
     $('.puzzle-letter:contains("' + letter + '")').removeClass('hide');
   },
@@ -45,8 +49,20 @@ export default {
     $('.pop-up-letters').append(`<p class="wrong-letter">${letter.toUpperCase()}</p>`);
   },
 
+  correctMessage() {
+    $('.pop-up-message').text('That\'s correct! It\'s still your turn. Spin the wheel, buy a vowel if you can afford it, or solve the puzzle')
+  },
 
+  displayScore(passValue) {
+    game.players[game.playerTurn].roundScore += passValue;
+    console.log(game.players[game.playerTurn].roundScore);
+    console.log(game.players[game.playerTurn].name);
+    
 
+    // console.log($('#player1-name').text());
+
+    // game.changePlayer();
+  },
 
 
 

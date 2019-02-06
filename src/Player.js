@@ -1,13 +1,18 @@
-// import domUpdates from './domUpdates.js';
+import domUpdates from './domUpdates.js';
+import Puzzle from './Puzzle.js'
 
 class Player {
   constructor(name, roundScore = 0, totalScore = 0) {
     this.name = name;
     this.roundScore = roundScore;
     this.totalScore = totalScore;
-    this.turn = false;
+    // this.turn = false;
   }
 
+  // updateRoundScore(passValue) {
+  //   console.log("update round score fired");
+  //   domUpdates.displayScore(passValue);
+  // }
   
   // scoreTracker() {
 
