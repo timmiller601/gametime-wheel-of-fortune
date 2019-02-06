@@ -13,16 +13,6 @@ class Game {
     this.currentPlayer = -1;
   }
 
-  // changePlayer(){
-
-  //   console.log('in change player');
-  //   this.playerTurn++;
-  //   // switch(this.playerTurn) 
-  //   // case 2: 
-  //   // this.playerTurn = 0;
-  //   // if()
-  // }
-
   startGame() {
     domUpdates.hideStartScreen();
     let names = domUpdates.getNames();
@@ -35,10 +25,6 @@ class Game {
     domUpdates.changePuzzle();
     this.updatePlayerTurn();
   }
-
-  // startRound() {
-
-  // }
 
   createPlayers(names) {
     let player1 = new Player(names[0]);
@@ -109,16 +95,18 @@ class Game {
       this.currentPlayer++;
     }
     domUpdates.changePlayer(this.currentPlayer);
-    console.log(this.currentPlayer);
   }
 
 
   updateScore(passValue) {
     let currentScore = this.players[this.currentPlayer].roundScore += passValue;
-    console.log(this.players[this.currentPlayer].roundScore, this.players[this.currentPlayer].name);
-    console.log(this.currentPlayer);
     domUpdates.displayScore(currentScore);
   } 
+
+  bankruptScore() {
+    this.players[this.currentPlayer].roundScore = 0;
+    domUpdates.displayScore(0);
+  }
 
 }
 export default Game; 
