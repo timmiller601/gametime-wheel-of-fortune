@@ -33,7 +33,7 @@ class Puzzle {
       game.updateRound(passValue);
     } else {
       domUpdates.wrongLetter(letter);
-      game.changePlayer();
+      game.updatePlayerTurn();
 
     }
   }
