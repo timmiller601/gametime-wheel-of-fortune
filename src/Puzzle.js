@@ -1,4 +1,5 @@
 import domUpdates from './domUpdates.js';
+import Wheel from './Wheel.js';
 import Player from './Player.js';
 import Game from './Game.js';
 import $ from 'jquery';
@@ -19,25 +20,25 @@ class Puzzle {
     let forbiddenNum = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const letter = ($('#guess-input').val().toUpperCase());
     if (forbiddenVowel.includes(letter)) {
-      alert("Sorry, a vowel costs $100. You can buy one below.");
+      domUpdates.buyVowelMessage();
       return;
     }
     if (forbiddenNum.includes(letter)) {
-      alert("That's not a letter");
+      domUpdates.notLetterMessage();
       return;
     }
     if (array.includes(letter)) {
       domUpdates.changeLetter(letter);
       domUpdates.correctMessage();
-      let passValue = 150;
+      let passValue =  game.wheels[0].currentValue;
       game.updateScore(passValue);
     } else {
       domUpdates.wrongLetter(letter);
       game.updatePlayerTurn();
-
+      domUpdates.wrongMessage();
     }
   }
-
+  
   checkVowel() {
     const puzzleAnswer = this.answer.toUpperCase().split('');
     const vowel = ($('#vowel-input').val().toUpperCase());
@@ -45,6 +46,7 @@ class Puzzle {
       domUpdates.changeLetter(vowel);
     } else {
       domUpdates.wrongLetter(vowel);
+      domUpdates.wrongMessage();
     }
   }
 }

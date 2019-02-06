@@ -8,8 +8,6 @@ import Puzzle from './Puzzle.js';
 import $ from 'jquery';
 
 
-// $('.start-button').on('click', playGame);
-
 export default {
   getNames() {
     let $players = [$('#player1').val(), $('#player2').val(), $('#player3').val()];
@@ -20,8 +18,6 @@ export default {
     $('#player1-name').text(players[0]);
     $('#player2-name').text(players[1]);
     $('#player3-name').text(players[2]);
-    // $('player[2].name').text('hi');
-
   },
 
   changePuzzle() {
@@ -46,8 +42,20 @@ export default {
     $('.puzzle-letter:contains("' + letter + '")').removeClass('hide');
   },
 
+  buyVowelMessage() {
+    $('.pop-up-message').text('Sorry, a vowel costs $100. You can buy one below.')
+  },
+
+  notLetterMessage() {
+    $('.pop-up-message').text('That\'s not a letter')
+  },
+
   wrongLetter(letter) {
     $('.pop-up-letters').append(`<p class="wrong-letter">${letter.toUpperCase()}</p>`);
+  },
+
+  wrongMessage() {
+    $('.pop-up-message').text('Incorrect Guess. Next Player it is your turn');
   },
 
   correctMessage() {
@@ -55,17 +63,7 @@ export default {
   },
 
   displayScore(currentScore) {
-    console.log(currentScore);
-    console.log(game.currentPlayer);
     $(`#${game.currentPlayer} .round-score span`).text(currentScore);
-    
-    
-    // $('.player').removeClass('current-player');
-    // $(`#${playerIndex}`).addClass('current-player');
-
-    // console.log($('#player1-name').text());
-
-    // game.changePlayer();
   },
 
 
@@ -82,15 +80,17 @@ export default {
 
 
   valueMessage(currentElement) {
-    $('.pop-up-message').text( `${currentElement}`)
-  },
-
-  bankruptOrLoseATurnMessage(currentElement) {
+    let currentValue = currentElement;
     if (currentElement === 'BANKRUPT') {
-      $('.pop-up-message').text(`You just lost All The Money`)
+      $('.pop-up-message').text(`You just lost All The Money`);
+      game.bankruptScore();
+      game.updatePlayerTurn();
     } 
     if (currentElement === 'LOSE A TURN') {
-      $('.pop-up-message').text(`Wow you suck - lost your turn.`)
+      $('.pop-up-message').text(`Wow you suck - lost your turn.`);
+      game.updatePlayerTurn();
+    } else {
+    $('.pop-up-message').text( `This spin is worth ${currentElement}`)
     }
   },
 
@@ -105,23 +105,7 @@ export default {
     console.log('current player ', playerIndex);
     $('.player').removeClass('current-player');
     $(`#${playerIndex}`).addClass('current-player');
-    // switch (playerIndex) {
-    //   case 0: 
-        
-    //     // $('.p1-position').addClass('current-player')
-    //     // $('.p2-position').removeClass('current-player')
-    //     // $('.p3-position').removeClass('current-player')
-    //     break;
-    //   case 1: 
-    //     // $('.p2-position').addClass('current-player')
-    //     // $('.p3-position').removeClass('current-player')
-    //     // $('.p1-position').removeClass('current-player')
-    //     break;
-    //   default: 
-    //     // $('.p3-position').addClass('current-player')
-    //     // $('.p2-position').removeClass('current-player')
-    //     $('.p1-position').removeClass('current-player') 
-    // }
+   
   },
 
 }

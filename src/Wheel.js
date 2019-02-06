@@ -3,13 +3,13 @@ import domUpdates from './domUpdates.js';
 class Wheel {
   constructor(wheelObj) {
     this.wheel = wheelObj;
+    this.currentValue = undefined;
   }
 
   spin() {
-    console.log(this.wheel);
     const spinValue = this.wheel[Math.floor(Math.random() * this.wheel.length)];
     domUpdates.valueMessage(spinValue);
-    domUpdates.bankruptOrLoseATurnMessage();
+    this.currentValue = spinValue;
     return spinValue;
   }
 
