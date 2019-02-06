@@ -15,7 +15,7 @@ window.game = new Game();
 $('.start-button').on('click', function(e) {
   e.preventDefault();
   game.startGame();
-  game.startRound();
+  // game.startRound();
 })
 
 $('#guess-button').on('click', function(e) {

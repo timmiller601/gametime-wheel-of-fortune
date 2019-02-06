@@ -98,22 +98,26 @@ export default {
 
 
   changePlayer(playerIndex) {
-    switch (playerIndex) {
-      case 0: 
-        $('.p1-position').addClass('current-player')
-        $('.p2-position').removeClass('current-player')
-        $('.p3-position').removeClass('current-player')
-        break;
-      case 1: 
-        $('.p2-position').addClass('current-player')
-        $('.p3-position').removeClass('current-player')
-        $('.p1-position').removeClass('current-player')
-        break;
-      default: 
-        $('.p3-position').addClass('current-player')
-        $('.p2-position').removeClass('current-player')
-        $('.p1-position').removeClass('current-player') 
-    }
+    console.log('current player ', playerIndex);
+    $('.player').removeClass('current-player');
+    $(`#${playerIndex}`).addClass('current-player');
+    // switch (playerIndex) {
+    //   case 0: 
+        
+    //     // $('.p1-position').addClass('current-player')
+    //     // $('.p2-position').removeClass('current-player')
+    //     // $('.p3-position').removeClass('current-player')
+    //     break;
+    //   case 1: 
+    //     // $('.p2-position').addClass('current-player')
+    //     // $('.p3-position').removeClass('current-player')
+    //     // $('.p1-position').removeClass('current-player')
+    //     break;
+    //   default: 
+    //     // $('.p3-position').addClass('current-player')
+    //     // $('.p2-position').removeClass('current-player')
+    //     $('.p1-position').removeClass('current-player') 
+    // }
   },
 
 }
