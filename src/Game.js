@@ -24,6 +24,7 @@ class Game {
   }
 
   startGame() {
+    domUpdates.hideStartScreen();
     let names = domUpdates.getNames();
     let puzzles = this.findPuzzles();
     let wheels = this.collectWheels();
@@ -106,10 +107,22 @@ class Game {
     this.players[0].turn = false;
     this.players[1].turn = false;
     this.players[2].turn = true;
-    domUpdates.highlightCurrentPlayer();
+    this.currentPlayer();
   }
 
-  updateRound(passValue) {
+
+  previousPlayer() {
+    domUpdates.unhighlightCurrentPlayer(this.players[0].name);
+  }
+
+  currentPlayer() {
+    let curPlayer = this.players[2].name; 
+    console.log(curPlayer);
+    domUpdates.highlightCurrentPlayer(this.players[2].name);
+  }
+
+
+updateRound(passValue) {
     domUpdates.displayScore(passValue);
   }
 

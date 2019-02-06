@@ -34,6 +34,7 @@ class Puzzle {
     } else {
       domUpdates.wrongLetter(letter);
       game.changePlayer();
+
     }
   }
 
