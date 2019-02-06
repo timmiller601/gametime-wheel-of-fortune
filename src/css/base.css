@@ -21,6 +21,7 @@ h2 {
 /*landing page*/
 .landing-page {
   background-color: #AA73EF;
+  height: 100vh;
 }
 
 .main-title {
@@ -53,6 +54,10 @@ h2 {
 }
 
 /* Header Section Begins Here*/
+
+.hidden.hidden {
+  visibility: hidden;
+}
 
 header {
   background-color: #004bc4;

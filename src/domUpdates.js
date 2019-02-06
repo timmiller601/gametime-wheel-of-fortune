@@ -92,14 +92,28 @@ export default {
 
   hideStartScreen() {
     $('.landing-page').hide();
+    $('header').removeClass('hidden');
+    $('main').removeClass('hidden');
   },
 
-  highlightCurrentPlayer(name) {
-    $(`.player:contains(${name})`).addClass('current-player');
-  },
 
-  unhighlightPreviousPlayer(name) {
-    $(`.player:contains(${name})`).removeClass('current-player');
+  changePlayer(playerIndex) {
+    switch (playerIndex) {
+      case 0: 
+        $('.p1-position').addClass('current-player')
+        $('.p2-position').removeClass('current-player')
+        $('.p3-position').removeClass('current-player')
+        break;
+      case 1: 
+        $('.p2-position').addClass('current-player')
+        $('.p3-position').removeClass('current-player')
+        $('.p1-position').removeClass('current-player')
+        break;
+      default: 
+        $('.p3-position').addClass('current-player')
+        $('.p2-position').removeClass('current-player')
+        $('.p1-position').removeClass('current-player') 
+    }
   },
 
 }

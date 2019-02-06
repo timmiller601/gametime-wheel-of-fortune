@@ -10,7 +10,7 @@ class Game {
     this.puzzles = [];
     this.wheels = [];
     this.players = [];
-    this.playerTurn = 0;
+    this.currentPlayer = 0;
   }
 
   changePlayer(){
@@ -36,7 +36,7 @@ class Game {
   }
 
   startRound() {
-    this.trackPlayerTurn();
+    this.updatePlayerTurn();
 
   }
 
@@ -101,24 +101,15 @@ class Game {
 
   }
 
-  trackPlayerTurn() {
-    let player = this.players.shift();
-    this.players.push(player);
-    this.players[0].turn = false;
-    this.players[1].turn = false;
-    this.players[2].turn = true;
-    this.currentPlayer();
-  }
-
-
-  previousPlayer() {
-    domUpdates.unhighlightCurrentPlayer(this.players[0].name);
-  }
-
-  currentPlayer() {
-    let curPlayer = this.players[2].name; 
-    console.log(curPlayer);
-    domUpdates.highlightCurrentPlayer(this.players[2].name);
+  updatePlayerTurn() {
+    console.log('fire');
+    if (this.currentPlayer > 1) {
+      this.currentPlayer = 0;
+    } else {
+      this.currentPlayer++;
+    }
+    domUpdates.changePlayer(this.currentPlayer);
+    console.log(this.currentPlayer);
   }
 
 
