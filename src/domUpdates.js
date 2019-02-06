@@ -92,6 +92,8 @@ export default {
 
   hideStartScreen() {
     $('.landing-page').hide();
+    $('header').removeClass('hidden');
+    $('main').removeClass('hidden');
   },
 
 
