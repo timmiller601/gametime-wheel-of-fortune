@@ -25,7 +25,6 @@ $('.start-button').on('click', function(e) {
 $('#guess-button').on('click', function(e) {
   e.preventDefault();
   game.puzzles[0].checkGuess(game);
-  $('#guess-button').prop('disabled', true);
   $('#vowel-button').prop('disabled', false);
   $('#solve-button').prop('disabled', false);
   domUpdates.clearInput();
