@@ -3,7 +3,7 @@ import data from './data.js';
 import Player from './Player.js';
 import Puzzle from './Puzzle.js';
 import Wheel from './Wheel.js';
-// import $ from 'jquery';
+
 
 class Game {
   constructor() {

@@ -41,7 +41,6 @@ $('#solve-button').on('click', function(e) {
   e.preventDefault();
   game.puzzles[0].checkSolve(game);
   domUpdates.clearInput();
-  console.log('solve clicked');
 })
 
 $('.wheel').on('click', function(e) {
@@ -50,6 +49,10 @@ $('.wheel').on('click', function(e) {
   $('#guess-button').prop('disabled', false);
   $('#solve-button').prop('disabled', true);
   $('#vowel-button').prop('disabled', true);
+})
+
+$('#new-game').on('click', function() {
+  location.reload();
 })
 
 
