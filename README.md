@@ -34,9 +34,9 @@ Mocha
 Chai
 
 ### Wireframe and Screen Shots
-![alt text](gametime-wheel-of-fortune/src/images/landingPage.png);
-![alt text](gametime-wheel-of-fortune/src/images/StartW.png);
-![alt text](gametime-wheel-of-fortune/src/images/gameP.png);
+![alt text](https://gametime-wheel-of-fortune/src/images/landingPage.png);
+![alt text](https://gametime-wheel-of-fortune/src/images/StartW.png);
+![alt text](https://gametime-wheel-of-fortune/src/images/gameP.png);
 
 
 
