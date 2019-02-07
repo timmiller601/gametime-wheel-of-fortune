@@ -9,6 +9,7 @@ class Puzzle {
     this.firstWord = puzzleObj.first_word;
     this.description = puzzleObj.description;
     this.answer = puzzleObj.correct_answer;
+    this.guessedLetters = [];
   }
 
   checkGuess(game) {
@@ -18,21 +19,32 @@ class Puzzle {
     const letter = ($('#guess-input').val().toUpperCase());
     if (forbiddenVowel.includes(letter)) {
       domUpdates.buyVowelMessage();
+      // domUpdates.disableWheel();
       return;
     }
     if (forbiddenNum.includes(letter)) {
       domUpdates.notLetterMessage();
+      // domUpdates.disableWheel();
+      return;
+    }
+    if (this.guessedLetters.includes(letter)) {
+      domUpdates.alreadyGuessedMessage();
+      // domUpdates.disableWheel();
       return;
     }
     if (array.includes(letter)) {
+      this.guessedLetters.push(letter);
       domUpdates.changeLetter(letter);
       domUpdates.correctMessage();
       let passValue =  game.wheels[0].currentValue;
       game.updateScore(game, passValue);
+      domUpdates.disableGuess();
     } else {
+      this.guessedLetters.push(letter);
       domUpdates.wrongLetter(letter);
       game.updatePlayerTurn();
       domUpdates.wrongMessage();
+      domUpdates.disableGuess();
     }
   }
   
@@ -43,11 +55,17 @@ class Puzzle {
       domUpdates.tooPoorMessage();
       return; 
     }
+    if (this.guessedLetters.includes(vowel)) {
+      domUpdates.alreadyGuessedMessage();
+      return;
+    }
     if (puzzleAnswer.includes(vowel)) {
+      this.guessedLetters.push(vowel);
       let minus100 = -100;
       game.updateScore(game, minus100);
       domUpdates.changeLetter(vowel);
     } else {
+      this.guessedLetters.push(vowel);
       let minus100 = -100;
       game.updateScore(game, minus100);
       domUpdates.wrongLetter(vowel);

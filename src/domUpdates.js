@@ -90,6 +90,20 @@ export default {
     $('.pop-up-message').text('WINNER WINNER CHICKEN DINNER!!!!')
   },
 
+
+
+  alreadyGuessedMessage() {
+    $('.pop-up-message').text('That letter has already been guessed. Try again.')
+  },
+
+  disableGuess() {
+    $('#guess-button').prop('disabled', true);
+  },
+
+  // disableWheel() {
+  //   $('#wheel-button').prop('disabled', true);
+  // },
+
 }
 
 
