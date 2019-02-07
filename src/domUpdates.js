@@ -32,7 +32,6 @@ export default {
     });
     let category = game.puzzles[0].category;
     $('.category').text(category); 
-    console.log(game.puzzles[0].answer);
   },
 
   clearInput() {
@@ -77,7 +76,7 @@ export default {
     } 
     if (currentElement === 'LOSE A TURN') {
       $('.pop-up-message').text(`Wow you suck - lost your turn.`);
-          } else {
+    } else {
       $('.pop-up-message').text( `This spin is worth ${currentElement}`)
     }
   },
