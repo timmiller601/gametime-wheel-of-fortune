@@ -23,10 +23,10 @@ describe('Game', function() {
   })
 
   //testing startGame 
-  // it ('should should initialize the game with players, puzzles, and wheels', function() {
-  //   game.startGame();
-  //   expect(domUpdates.displayNames()).to.have.been.called(1);
-  // })
+  it ('should should initialize the game with players, puzzles, and wheels', function() {
+    game.startGame(game);
+    expect(domUpdates.displayNames()).to.have.been.called(1);
+  })
 
   //testing createPlayers
   it ('should instantiate three new Players', function() {
@@ -87,11 +87,10 @@ describe('Game', function() {
     expect(game.players[0].roundScore).to.equal(50);
   })
 
-  //bankruptScore
+  //removeMoney
   it('should bankrupt the current player\'s score', function() {
-    // game.players[0] = new Player();
-    // domUpdates.valueMessage('BANKRUPT');
-    expect(game.bankruptScore()).to.have.been.called(1);
+    // game.currentPlayer = 0
+    expect(game.removeMoney(game)).to.have.been.called(1);
   })
 
 })
