@@ -55,6 +55,17 @@ class Puzzle {
       domUpdates.wrongMessage();
     }
   }
+
+  checkSolve(game) {
+    const puzzleAnswer = this.answer.toUpperCase();
+    const solveAttempt = $('#solve-input').val().toUpperCase();
+    if (solveAttempt === puzzleAnswer) {
+      domUpdates.winnerMessage();
+    } else {
+      domUpdates.wrongMessage();
+      game.updatePlayerTurn()
+    }
+  }
 }
 
 export default Puzzle;
