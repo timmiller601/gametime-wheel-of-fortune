@@ -1,11 +1,10 @@
-import Player from '../src/Player.js';
 import Game from '../src/Game.js';
 
 import chai from 'chai';
 const expect = chai.expect;
 
 describe('Player', function() {
-let game; 
+  let game; 
 
   beforeEach(function () {
     game = new Game();
