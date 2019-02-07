@@ -10,7 +10,7 @@ chai.use(spies);
 chai.spy.on(domUpdates, ['changeLetter', 'correctMessage'], () => true);
 
 describe('Puzzle', function() {
-let game; 
+  let game; 
 
   beforeEach(function () {
     game = new Game();
@@ -33,8 +33,7 @@ let game;
     let puzzles = game.findPuzzles()
     game.createPuzzles(puzzles);
     puzzle.checkGuess(game);
-    let array = ['t','i','t','a','n','i','c'];
-    let letter = 't';
+
 
     expect(game.updateScore()).to.have.been.called(1);
   })
