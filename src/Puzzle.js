@@ -1,4 +1,5 @@
 import domUpdates from './domUpdates.js';
+import Player from './Player.js';
 import $ from 'jquery';
 
 class Puzzle {
@@ -12,7 +13,7 @@ class Puzzle {
     this.guessedLetters = [];
   }
 
-  checkGuess(game) {
+  checkGuess(game, player) {
     const array = this.answer.toUpperCase().split('');
     let forbiddenVowel = ["A", "E", "I", "O", "U"];
     let forbiddenNum = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -37,8 +38,8 @@ class Puzzle {
       domUpdates.changeLetter(letter);
       domUpdates.correctMessage();
       let passValue =  game.wheels[0].currentValue;
-      game.updateScore(game, passValue);
       domUpdates.disableGuess();
+      game.players[0].updateScore(game, passValue);
     } else {
       this.guessedLetters.push(letter);
       domUpdates.wrongLetter(letter);
@@ -62,12 +63,12 @@ class Puzzle {
     if (puzzleAnswer.includes(vowel)) {
       this.guessedLetters.push(vowel);
       let minus100 = -100;
-      game.updateScore(game, minus100);
+      game.players[0].updateScore(game, minus100);
       domUpdates.changeLetter(vowel);
     } else {
       this.guessedLetters.push(vowel);
       let minus100 = -100;
-      game.updateScore(game, minus100);
+      game.players[0].updateScore(game, minus100);
       domUpdates.wrongLetter(vowel);
       game.updatePlayerTurn();
       domUpdates.wrongMessage();

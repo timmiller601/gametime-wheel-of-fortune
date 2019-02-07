@@ -11,6 +11,7 @@ class Game {
     this.wheels = [];
     this.players = [];
     this.currentPlayer = -1;
+
   }
 
   startGame(game) {
@@ -94,17 +95,6 @@ class Game {
       this.currentPlayer++;
     }
     domUpdates.changePlayer(this.currentPlayer);
-  }
-
-
-  updateScore(game, passValue) {
-    let currentScore = this.players[this.currentPlayer].roundScore += passValue;
-    domUpdates.displayScore(game, currentScore);
-  } 
-
-  removeMoney(game) {
-    this.players[this.currentPlayer].roundScore = 0;
-    domUpdates.displayScore(game, 0);
   }
 
 }

@@ -60,7 +60,11 @@ export default {
   },
 
   displayScore(game, currentScore) {
+    if(currentScore === 'BANKRUPT' || currentScore === 'LOSE A TURN') {
+      return;
+    } else {
     $(`#${game.currentPlayer} .round-score span`).text(currentScore);
+    }
   },
 
   valueMessage(game, currentElement) {
