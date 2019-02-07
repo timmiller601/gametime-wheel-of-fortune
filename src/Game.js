@@ -24,7 +24,7 @@ class Game {
     this.createWheels(wheels);
     domUpdates.changePuzzle(game);
     this.updatePlayerTurn();
-    console.log(game)
+    console.log(game);
   }
 
   createPlayers(names) {
@@ -89,7 +89,6 @@ class Game {
   }
 
   updatePlayerTurn() {
-    console.log('fire');
     if (this.currentPlayer > 1) {
       this.currentPlayer = 0;
     } else {

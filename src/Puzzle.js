@@ -1,7 +1,4 @@
 import domUpdates from './domUpdates.js';
-import Wheel from './Wheel.js';
-import Player from './Player.js';
-import Game from './Game.js';
 import $ from 'jquery';
 
 class Puzzle {

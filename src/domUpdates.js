@@ -4,13 +4,14 @@
 // import Game from './Game.js';
 // import Player from './Player.js';
 // import Wheel from './Wheel.js';
-import Puzzle from './Puzzle.js';
+// import Puzzle from './Puzzle.js';
 import $ from 'jquery';
 
 
 export default {
   getNames() {
-    let $players = [$('#player1').val(), $('#player2').val(), $('#player3').val()];
+    let $players = [$('#player1').val(),
+      $('#player2').val(), $('#player3').val()];
     return $players;
   },
 
@@ -23,7 +24,7 @@ export default {
   changePuzzle(game) {
     let answer = game.puzzles[0].answer.split('');
     answer.forEach(letter => {
-      if (letter === " " || letter === "-" || letter === "&" || letter === "\'") {
+      if (letter === " " || letter === "-" || letter === "&") {
         $('.puzzle').append(`<p class="puzzle-letter no-border">${letter.toUpperCase()}</p>`);
       } else {
         $('.puzzle').append(`<p class="puzzle-letter hide">${letter.toUpperCase()}</p>`);
@@ -66,21 +67,7 @@ export default {
     $(`#${game.currentPlayer} .round-score span`).text(currentScore);
   },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  valueMessage(currentElement) {
-    let currentValue = currentElement;
+  valueMessage(game, currentElement) {
     if (currentElement === 'BANKRUPT') {
       $('.pop-up-message').text(`You just lost All The Money`);
       game.bankruptScore();
@@ -90,7 +77,7 @@ export default {
       $('.pop-up-message').text(`Wow you suck - lost your turn.`);
       game.updatePlayerTurn();
     } else {
-    $('.pop-up-message').text( `This spin is worth ${currentElement}`)
+      $('.pop-up-message').text( `This spin is worth ${currentElement}`)
     }
   },
 
@@ -102,10 +89,8 @@ export default {
 
 
   changePlayer(playerIndex) {
-    console.log('current player ', playerIndex);
     $('.player').removeClass('current-player');
     $(`#${playerIndex}`).addClass('current-player');
-   
   },
 
 }
