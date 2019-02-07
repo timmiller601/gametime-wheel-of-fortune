@@ -37,7 +37,7 @@ $('#vowel-button').on('click', function(e) {
 
 $('.wheel').on('click', function(e) {
   e.preventDefault();
-  game.wheels[0].spin();
+  game.wheels[0].spin(game);
 })
 
 

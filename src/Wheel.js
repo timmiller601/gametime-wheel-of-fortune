@@ -6,9 +6,9 @@ class Wheel {
     this.currentValue = undefined;
   }
 
-  spin() {
+  spin(game) {
     const spinValue = this.wheel[Math.floor(Math.random() * this.wheel.length)];
-    domUpdates.valueMessage(spinValue);
+    domUpdates.valueMessage(game, spinValue);
     this.currentValue = spinValue;
     return spinValue;
   }
