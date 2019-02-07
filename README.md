@@ -11,15 +11,15 @@ npm install from the project directory
 
 
 ## Contributors 
-Taylor Sperry
-Tim Miller 
+- Taylor Sperry
+- Tim Miller 
 
 ### Built With:
-HTML
-CSS
-Jquery
-Javascript
-Object Oriented Programming
+- HTML
+- CSS
+- jQuery
+- JavasSript
+- Object Oriented Programming
 
 ### Our group DTR 
 https://gist.github.com/taylorsperry/417e0ba9e347bfb181ab1eff4a580da3
@@ -27,16 +27,15 @@ https://gist.github.com/taylorsperry/417e0ba9e347bfb181ab1eff4a580da3
 ### Next Steps:
 - After Solve Puzzel, iterate through the game's wheels and puzzles for subsequent rounds. This will be set up dynamically by matching the round number to the indices of the wheels and puzzles. After each round, the winner's score will be added to his/her total score, and all players' round scores will be reset to zero.
 - After completing 4 rounds, the player with the highest total score will be declared the winner will play in a bonus round. If the bonus puzzel is answered correctly their screen will be showed with animations of glory. 
-- 
 
 ### Tested With:
-Mocha 
-Chai
+- Mocha 
+- Chai
 
-### Wireframe and Screen Shots
-![alt text](https://gametime-wheel-of-fortune/src/images/landingPage.png);
-![alt text](https://gametime-wheel-of-fortune/src/images/StartW.png);
-![alt text](https://gametime-wheel-of-fortune/src/images/gameP.png);
+### Screen Shots
+![landing-page](https://user-images.githubusercontent.com/43555476/52430978-7ff17d00-2ac4-11e9-93ea-498ba45c7a6e.png)
+![begin-round](https://user-images.githubusercontent.com/43555476/52430961-7831d880-2ac4-11e9-8447-ae13138241b2.png)
+![game-play](https://user-images.githubusercontent.com/43555476/52430972-7c5df600-2ac4-11e9-9732-d6a99fb5efad.png)
 
 
 
