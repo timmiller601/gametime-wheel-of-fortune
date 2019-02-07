@@ -11,7 +11,7 @@ class Wheel {
     domUpdates.valueMessage(game, spinValue);
     this.currentValue = spinValue;
     if (spinValue === 'BANKRUPT') {
-      game.removeMoney(game);
+      game.players[0].removeMoney(game);
       game.updatePlayerTurn();
     }
     if (spinValue === 'LOSE A TURN') {
