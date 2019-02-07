@@ -63,6 +63,10 @@ export default {
     $('.pop-up-message').text('That\'s correct! It\'s still your turn. Spin the wheel, buy a vowel if you can afford it, or solve the puzzle')
   },
 
+  tooPoorMessage() {
+    $('.pop-up-message').text('A vowel costs $100 and you can\'t afford one right now.');
+  },
+
   displayScore(game, currentScore) {
     $(`#${game.currentPlayer} .round-score span`).text(currentScore);
   },
