@@ -3,6 +3,7 @@ const expect = chai.expect;
 import spies from 'chai-spies';
 chai.use(spies);
 
+// import $ from 'jquery';
 import domUpdates from '../src/domUpdates.js';
 import data from '../src/data.js';
 import Game from '../src/Game.js';
@@ -11,17 +12,14 @@ import Player from '../src/Player.js';
 import Wheel from '../src/Wheel.js';
 
 chai.spy.on(domUpdates, 'getNames', () => ['amy', 'mimi', 'callie'])
-chai.spy.on(domUpdates, 'displayNames', () => true);
+chai.spy.on(domUpdates, ['displayNames', 'changePlayer', 'displayScore'], () => true);
+chai.spy.on(domUpdates, 'valueMessage', () => 'BANKRUPT')
 
 describe('Game', function() {
   let game; 
 
   beforeEach(function() {
     game = new Game();
-  })
-
-  afterEach(function() {
-    chai.spy.restore(domUpdates);
   })
 
   //testing startGame 
@@ -47,6 +45,13 @@ describe('Game', function() {
     expect(game.puzzles[0]).to.be.an.instanceof(Puzzle);
   });
 
+  //testing createWheels 
+  it('should instantiate four Wheels', function() {
+    let wheels = game.collectWheels();
+    game.createWheels(wheels);
+    expect(game.wheels[0]).to.be.an.instanceof(Wheel);
+  })
+
   //testing findPuzzles
   it('should pull out the keys in the Puzzle object', function() {
     let puzzleKeys = Object.keys(data.puzzles);
@@ -67,18 +72,26 @@ describe('Game', function() {
     expect(game.findWheels()).to.have.length(6);
   })
 
-  //testing createWheels 
-  it('should instantiate four Wheels', function() {
-    let wheels = game.collectWheels();
-    game.createWheels(wheels);
-    expect(game.wheels[0]).to.be.an.instanceof(Wheel);
+  //updatePlayerTurn 
+  it('should change currentPlayer from -1 to 0', function() {
+    game.updatePlayerTurn()
+    expect(game.currentPlayer).to.equal(0);
   })
 
-  //testing createPuzzles
-  it('shoud instantiate four Puzzles', function() {
-    let puzzles = game.findPuzzles();
-    game.createPuzzles(puzzles);
-    expect(game.puzzles[0]).to.be.an.instanceof(Puzzle);
+  //updateScore
+  it('should update score from 0 to wheel value', function() {
+    game.currentPlayer = 0;
+    game.players[0] = new Player();
+    let passValue = 50;
+    game.updateScore(game, passValue);
+    expect(game.players[0].roundScore).to.equal(50);
+  })
+
+  //bankruptScore
+  it('should bankrupt the current player\'s score', function() {
+    // game.players[0] = new Player();
+    // domUpdates.valueMessage('BANKRUPT');
+    expect(game.bankruptScore()).to.have.been.called(1);
   })
 
 })

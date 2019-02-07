@@ -13,7 +13,7 @@ class Game {
     this.currentPlayer = -1;
   }
 
-  startGame() {
+  startGame(game) {
     domUpdates.hideStartScreen();
     let names = domUpdates.getNames();
     let puzzles = this.findPuzzles();
@@ -22,8 +22,9 @@ class Game {
     this.createPlayers(names);
     this.createPuzzles(puzzles);
     this.createWheels(wheels);
-    domUpdates.changePuzzle();
+    domUpdates.changePuzzle(game);
     this.updatePlayerTurn();
+    console.log(game)
   }
 
   createPlayers(names) {
@@ -98,9 +99,9 @@ class Game {
   }
 
 
-  updateScore(passValue) {
+  updateScore(game, passValue) {
     let currentScore = this.players[this.currentPlayer].roundScore += passValue;
-    domUpdates.displayScore(currentScore);
+    domUpdates.displayScore(game, currentScore);
   } 
 
   bankruptScore() {

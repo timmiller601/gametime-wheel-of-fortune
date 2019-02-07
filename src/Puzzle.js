@@ -14,7 +14,7 @@ class Puzzle {
     this.answer = puzzleObj.correct_answer;
   }
 
-  checkGuess() {
+  checkGuess(game) {
     const array = this.answer.toUpperCase().split('');
     let forbiddenVowel = ["A", "E", "I", "O", "U"];
     let forbiddenNum = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -31,7 +31,7 @@ class Puzzle {
       domUpdates.changeLetter(letter);
       domUpdates.correctMessage();
       let passValue =  game.wheels[0].currentValue;
-      game.updateScore(passValue);
+      game.updateScore(game, passValue);
     } else {
       domUpdates.wrongLetter(letter);
       game.updatePlayerTurn();
