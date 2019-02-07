@@ -102,9 +102,9 @@ class Game {
     domUpdates.displayScore(game, currentScore);
   } 
 
-  bankruptScore() {
+  removeMoney(game) {
     this.players[this.currentPlayer].roundScore = 0;
-    domUpdates.displayScore(0);
+    domUpdates.displayScore(game, 0);
   }
 
 }

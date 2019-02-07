@@ -74,13 +74,10 @@ export default {
   valueMessage(game, currentElement) {
     if (currentElement === 'BANKRUPT') {
       $('.pop-up-message').text(`You just lost All The Money`);
-      game.bankruptScore();
-      game.updatePlayerTurn();
     } 
     if (currentElement === 'LOSE A TURN') {
       $('.pop-up-message').text(`Wow you suck - lost your turn.`);
-      game.updatePlayerTurn();
-    } else {
+          } else {
       $('.pop-up-message').text( `This spin is worth ${currentElement}`)
     }
   },
