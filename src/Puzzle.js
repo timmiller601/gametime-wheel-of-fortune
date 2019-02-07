@@ -36,13 +36,22 @@ class Puzzle {
     }
   }
   
-  checkVowel() {
+  checkVowel(game) {
     const puzzleAnswer = this.answer.toUpperCase().split('');
     const vowel = ($('#vowel-input').val().toUpperCase());
+    if (game.players[game.currentPlayer].roundScore < 100) {
+      domUpdates.tooPoorMessage();
+      return; 
+    }
     if (puzzleAnswer.includes(vowel)) {
+      let minus100 = -100;
+      game.updateScore(game, minus100);
       domUpdates.changeLetter(vowel);
     } else {
+      let minus100 = -100;
+      game.updateScore(game, minus100);
       domUpdates.wrongLetter(vowel);
+      game.updatePlayerTurn();
       domUpdates.wrongMessage();
     }
   }

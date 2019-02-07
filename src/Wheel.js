@@ -12,7 +12,10 @@ class Wheel {
     this.currentValue = spinValue;
     return spinValue;
   }
-
+//if this.currentValue === Bankrupt --> game.removeMoney() {
+  //that will change player's $ 
+  //call existing change turns method.
+//if this.currentValue === Lose a turn --> game.changeTurns;
 
 }
 

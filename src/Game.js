@@ -85,7 +85,6 @@ class Game {
       randomWheel.push(randomWheelResult);
     })
     return randomWheel;
-
   }
 
   updatePlayerTurn() {

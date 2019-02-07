@@ -128,6 +128,10 @@ button.wheel {
   border-radius: 0 10px 10px 0;
 }
 
+.play-button:disabled {
+  background-color: yellow;
+} 
+
 /* Puzzle Section Begins Here */
 
 .puzzle {

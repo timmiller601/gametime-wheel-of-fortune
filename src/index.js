@@ -11,33 +11,44 @@ import './css/base.css';
 import $ from 'jquery'; 
 
 let game = new Game();
+$('#guess-button').prop('disabled', true);
+$('#vowel-button').prop('disabled', true);
+$('#solve-button').prop('disabled', true);
+$('#wheel-button').prop('disabled', true);
 
 $('.start-button').on('click', function(e) {
   e.preventDefault();
   game.startGame(game);
+  $('#wheel-button').prop('disabled', false);
 })
 
 $('#guess-button').on('click', function(e) {
   e.preventDefault();
-  // grab the number from the wheel
-  // $('').text(); assign to variable
-  // take variable and parseInt();
-  // take assigned variable and pass it into checkGuess(wheelValue);
   game.puzzles[0].checkGuess(game);
+  $('#guess-button').prop('disabled', true);
+  $('#vowel-button').prop('disabled', false);
+  $('#solve-button').prop('disabled', false);
   domUpdates.clearInput();
-  // let playerScore = game.players[game.playerTurn].roundScore;
-  // domUpdates.appendScore(playerScore); 
 })
 
 $('#vowel-button').on('click', function(e) {
   e.preventDefault();
-  game.puzzles[0].checkVowel();
+  game.puzzles[0].checkVowel(game);
   domUpdates.clearInput();
+})
+
+$('#solve-button').on('click', function(e) {
+  e.preventDefault();
+  domUpdates.clearInput();
+  console.log('solve clicked');
 })
 
 $('.wheel').on('click', function(e) {
   e.preventDefault();
   game.wheels[0].spin(game);
+  $('#guess-button').prop('disabled', false);
+  $('#solve-button').prop('disabled', true);
+  $('#vowel-button').prop('disabled', true);
 })
 
 
