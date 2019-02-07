@@ -39,6 +39,7 @@ $('#vowel-button').on('click', function(e) {
 
 $('#solve-button').on('click', function(e) {
   e.preventDefault();
+  game.puzzles[0].checkSolve(game);
   domUpdates.clearInput();
   console.log('solve clicked');
 })

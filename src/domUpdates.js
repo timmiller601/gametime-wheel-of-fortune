@@ -94,6 +94,10 @@ export default {
     $(`#${playerIndex}`).addClass('current-player');
   },
 
+  winnerMessage() {
+    $('.pop-up-message').text('WINNER WINNER CHICKEN DINNER!!!!')
+  },
+
 }
 
 
