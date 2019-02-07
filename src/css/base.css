@@ -75,7 +75,7 @@ main {
       "play feedback"
       "players players";
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 2.5fr .5fr 2fr .5fr;
+    grid-template-rows: 2fr .5fr 1.5fr .25fr;
 }
 
 /* Play Section Begins Here */
@@ -87,7 +87,7 @@ main {
 .play {
   grid-area: play;
   display: grid;
-  grid-template-rows: repeat(2, 1fr)
+  grid-template-rows: 2fr 1fr;
 }
 
 .button-container {
@@ -109,6 +109,7 @@ button.wheel {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding-bottom: 25px;
 }
 
 
@@ -129,13 +130,16 @@ button.wheel {
 }
 
 .play-button:disabled {
-  background-color: yellow;
+  opacity: .25;
 } 
 
 /* Puzzle Section Begins Here */
 
 .puzzle {
   grid-area: puzzle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .puzzle-letter {
@@ -156,6 +160,8 @@ button.wheel {
 
 .category {
   grid-area: category;
+  display: flex;
+  justify-content: center;
 }
 
 /* Feedback Section Begins Here */
@@ -163,7 +169,8 @@ button.wheel {
 .feedback {
   grid-area: feedback;
   display: grid;
-  grid-template-columns: repeat(2, 1fr)
+  grid-template-columns: repeat(2, 1fr);
+  height: 200px;
 }
 
 .message,
@@ -182,8 +189,9 @@ button.wheel {
 }
 
 .pop-up-message {
-  background-color: #b651ff;
+  background-color: #d79fff;
   color: #004bc4;
+  font-size: 1.5rem;
 }
 
 .pop-up-letters {
@@ -211,11 +219,16 @@ button.wheel {
 }
 
 .current-player {
-  background-color: pink;
+  border: solid #fff 2px;
 }
 
 .score-container {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+}
+
+p.round-score,
+p.game-score {
+  margin: 0 auto 0 auto;
 }
