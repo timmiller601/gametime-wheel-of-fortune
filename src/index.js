@@ -10,12 +10,11 @@ import domUpdates from './domUpdates.js';
 import './css/base.css';
 import $ from 'jquery'; 
 
-window.game = new Game();
+let game = new Game();
 
 $('.start-button').on('click', function(e) {
   e.preventDefault();
-  game.startGame();
-  // game.startRound();
+  game.startGame(game);
 })
 
 $('#guess-button').on('click', function(e) {
@@ -24,7 +23,7 @@ $('#guess-button').on('click', function(e) {
   // $('').text(); assign to variable
   // take variable and parseInt();
   // take assigned variable and pass it into checkGuess(wheelValue);
-  game.puzzles[0].checkGuess();
+  game.puzzles[0].checkGuess(game);
   domUpdates.clearInput();
   // let playerScore = game.players[game.playerTurn].roundScore;
   // domUpdates.appendScore(playerScore); 
