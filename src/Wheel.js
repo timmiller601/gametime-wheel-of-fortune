@@ -12,6 +12,7 @@ class Wheel {
     this.currentValue = spinValue;
     if (spinValue === 'BANKRUPT') {
       game.players[0].removeMoney(game);
+      domUpdates.disableGuess();
       game.updatePlayerTurn();
     }
     if (spinValue === 'LOSE A TURN') {

@@ -15,7 +15,7 @@ export default {
   },
 
   changePuzzle(game) {
-    let answer = game.puzzles[0].answer.split('');
+    let answer = game.puzzles[game.currentRound].answer.split('');
     answer.forEach(letter => {
       if (letter === " " || letter === "-" || letter === "&") {
         $('.puzzle').append(`<p class="puzzle-letter no-border">${letter.toUpperCase()}</p>`);
@@ -23,7 +23,7 @@ export default {
         $('.puzzle').append(`<p class="puzzle-letter hide">${letter.toUpperCase()}</p>`);
       }
     });
-    let category = game.puzzles[0].category;
+    let category = game.puzzles[game.currentRound].category;
     $('.category').text(category); 
   },
 
@@ -94,8 +94,6 @@ export default {
     $('.pop-up-message').text('WINNER WINNER CHICKEN DINNER!!!!')
   },
 
-
-
   alreadyGuessedMessage() {
     $('.pop-up-message').text('That letter has already been guessed. Try again.')
   },
@@ -103,6 +101,12 @@ export default {
   disableGuess() {
     $('#guess-button').prop('disabled', true);
   },
+
+  clearBoard(game) {
+    $('.puzzle').empty();
+    $('.pop-up-message').text('Welcome to the next round!');
+    $('.round span').text(`${game.currentRound + 1}`)
+  }
 
   // disableWheel() {
   //   $('#wheel-button').prop('disabled', true);
