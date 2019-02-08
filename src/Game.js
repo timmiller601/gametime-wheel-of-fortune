@@ -16,7 +16,6 @@ class Game {
   }
 
   startGame(game) {
-    // this.updateRound();
     domUpdates.hideStartScreen();
     let names = domUpdates.getNames();
     let puzzles = this.findPuzzles();
@@ -98,19 +97,20 @@ class Game {
     }
     domUpdates.changePlayer(this.currentPlayer);
   }
-  // when solve puzzle returns true: update total score --> see which player has the highest score, they get to keep their score; everyone's round score resets to 0.
-  //Need some sort of button or prompt to initiate next round.
-  //The round on the dom top left changes to new round.
+
   updateRound(game) {
     if (this.currentRound >= 3) {
-      alert('GAME OVER');
+      game.players[game.currentPlayer].resetTotal(game);
+      game.players[game.currentPlayer].resetScore(game);
+      domUpdates.clearBoard(game);
+      alert('You Win! GAME OVER!');
     } else {
       this.currentRound++;
-      console.log(game);
-      // domUpdates.changePuzzle(game);
+      game.players[game.currentPlayer].resetTotal(game);
+      game.players[game.currentPlayer].resetScore(game);
       domUpdates.clearBoard(game);
       domUpdates.changePuzzle(game);
-      console.log(this.currentRound);
+      console.log(game);
     }
   }
 
