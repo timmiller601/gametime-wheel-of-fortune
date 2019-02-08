@@ -8,13 +8,13 @@ class Player {
   }
 
   updateScore(game, elementValue) {
-    let newScore = game.players[game.currentPlayer].roundScore += elementValue;
-    domUpdates.displayScore(game, newScore);
+    this.roundScore += elementValue;
+    domUpdates.displayScore(game, this.roundScore);  
   } 
 
-  removeMoney(game, currentScore) {
-    game.players[game.currentPlayer].roundScore = 0;
-    domUpdates.displayScore(game, 0);
+  removeMoney(game) {
+    this.roundScore = 0;
+    domUpdates.displayScore(game, this.roundScore);
   }
 
   resetTotal(game) {

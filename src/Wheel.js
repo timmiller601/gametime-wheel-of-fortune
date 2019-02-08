@@ -7,19 +7,22 @@ class Wheel {
   }
 
   spin(game) {
-    const spinValue = this.wheel[Math.floor(Math.random() * this.wheel.length)];
-    domUpdates.valueMessage(game, spinValue);
-    this.currentValue = spinValue;
-    if (spinValue === 'BANKRUPT') {
-      game.players[0].removeMoney(game);
-      domUpdates.disableGuess();
-      game.updatePlayerTurn();
+    this.currentValue = this.wheel[Math.floor(Math.random() * this.wheel.length)];
+    console.log(this.currentValue);
+    if (this.currentValue === 'BANKRUPT') {
+      game.players[game.currentPlayer].removeMoney(game);
+      domUpdates.displayBankrupt();
+      // domUpdates.disableGuess();
+      game.updatePlayerTurn(this);
+      return;
     }
-    if (spinValue === 'LOSE A TURN') {
-      game.updatePlayerTurn();
-
+    if (this.currentValue === 'LOSE A TURN') {
+      domUpdates.displayLoseTurn();
+      game.updatePlayerTurn(this);
+      return;
+    } else {
+      domUpdates.valueMessage(game, this.currentValue);
     }
-    return spinValue;
   }
 }
 
