@@ -25,7 +25,7 @@ class Game {
     this.createPuzzles(puzzles);
     this.createWheels(wheels);
     domUpdates.changePuzzle(game);
-    this.updatePlayerTurn();
+    this.updatePlayerTurn(game.wheels[game.currentRound]);
     console.log(game);
   }
 
@@ -89,13 +89,15 @@ class Game {
     return randomWheel;
   }
 
-  updatePlayerTurn() {
+  updatePlayerTurn(wheelObj) {
     if (this.currentPlayer > 1) {
       this.currentPlayer = 0;
     } else {
       this.currentPlayer++;
     }
     domUpdates.changePlayer(this.currentPlayer);
+    domUpdates.mustSpinBuyOrSolve();
+    wheelObj.currentValue = 0;
   }
 
   updateRound(game) {
@@ -108,6 +110,7 @@ class Game {
       this.currentRound++;
       game.players[game.currentPlayer].resetTotal(game);
       game.players[game.currentPlayer].resetScore(game);
+      domUpdates.mustSpin();
       domUpdates.clearBoard(game);
       domUpdates.changePuzzle(game);
       console.log(game);

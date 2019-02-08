@@ -59,12 +59,13 @@ export default {
     $('.pop-up-message').text('A vowel costs $100 and you can\'t afford one right now.');
   },
 
-  displayScore(game, currentScore) {
-    if(currentScore === 'BANKRUPT' || currentScore === 'LOSE A TURN') {
-      return;
-    } else {
-    $(`#${game.currentPlayer} .round-score span`).text(currentScore);
-    }
+  displayScore(game, playerScore) {
+    // if (playerScore === 'BANKRUPT' || playerScore === 'LOSE A TURN') {
+    //   $(`#${game.currentPlayer} .round-score span`).text(`${game.players[game.currentPlayer].roundScore}`);
+    //   return;
+    // } else {
+    $(`#${game.currentPlayer} .round-score span`).text(playerScore);
+    // }
   },
 
   displayTotal(game, resetTotal) {
@@ -76,14 +77,22 @@ export default {
   },
 
   valueMessage(game, currentElement) {
-    if (currentElement === 'BANKRUPT') {
-      $('.pop-up-message').text(`You just lost All The Money`);
-    } 
-    if (currentElement === 'LOSE A TURN') {
-      $('.pop-up-message').text(`Wow you suck - lost your turn.`);
-    } else {
+    // if (currentElement === 'BANKRUPT') {
+    //   $('.pop-up-message').text(`You just lost All The Money`);
+    // } 
+    // if (currentElement === 'LOSE A TURN') {
+    //   $('.pop-up-message').text(`Wow you suck - lost your turn.`);
+    // } else {
       $('.pop-up-message').text( `This spin is worth ${currentElement}`)
-    }
+    // }
+  },
+
+  displayBankrupt() {
+    $('.pop-up-message').text(`You just lost All The Money. Next player, you're up`);
+  },
+
+  displayLoseTurn() {
+    $('.pop-up-message').text(`Wow you suck - lost your turn.`);
   },
 
   hideStartScreen() {
@@ -106,8 +115,29 @@ export default {
     $('.pop-up-message').text('That letter has already been guessed. Try again.')
   },
 
-  disableGuess() {
+  mustSpinMessage() {
+    $('.pop-up-message').text('You have to spin the wheel before you can guess.');
+  },
+
+  mustSpin() {
+    $('#wheel-button').prop('disabled', false);
     $('#guess-button').prop('disabled', true);
+    $('#vowel-button').prop('disabled', true);
+    $('#solve-button').prop('disabled', true);
+  },
+
+  mustSpinBuyOrSolve() {
+    $('#wheel-button').prop('disabled', false);
+    $('#guess-button').prop('disabled', true);
+    $('#vowel-button').prop('disabled', false);
+    $('#solve-button').prop('disabled', false);
+  },
+
+  mustGuess() {
+    $('#wheel-button').prop('disabled', true);
+    $('#guess-button').prop('disabled', false);
+    $('#vowel-button').prop('disabled', true);
+    $('#solve-button').prop('disabled', true);
   },
 
   clearBoard(game) {

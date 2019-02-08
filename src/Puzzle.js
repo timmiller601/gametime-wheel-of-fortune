@@ -35,14 +35,14 @@ class Puzzle {
       domUpdates.changeLetter(letter);
       domUpdates.correctMessage();
       let passValue =  game.wheels[game.currentRound].currentValue;
-      domUpdates.disableGuess();
+      // domUpdates.disableGuess();
       game.players[game.currentPlayer].updateScore(game, passValue);
     } else {
       this.guessedLetters.push(letter);
       domUpdates.wrongLetter(letter);
-      game.updatePlayerTurn();
+      game.updatePlayerTurn(game.wheels[game.currentRound]);
       domUpdates.wrongMessage();
-      domUpdates.disableGuess();
+      // domUpdates.disableGuess();
     }
   }
   
@@ -67,7 +67,8 @@ class Puzzle {
       let minus100 = -100;
       game.players[game.currentPlayer].updateScore(game, minus100);
       domUpdates.wrongLetter(vowel);
-      game.updatePlayerTurn();
+      game.updatePlayerTurn(game.wheels[game.currentRound]);
+      domUpdates.mustSpin();
       domUpdates.wrongMessage();
     }
   }
@@ -80,7 +81,7 @@ class Puzzle {
       game.updateRound(game);
     } else {
       domUpdates.wrongMessage();
-      game.updatePlayerTurn()
+      game.updatePlayerTurn(game.wheels[game.currentRound])
     }
   }
 }
