@@ -83,7 +83,7 @@ export default {
   },
 
   valueMessage(game, currentElement) {
-      $('.pop-up-message').text( `This spin is worth ${currentElement}`)
+    $('.pop-up-message').text( `This spin is worth ${currentElement}`)
   },
 
   displayBankrupt() {
