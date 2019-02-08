@@ -67,6 +67,14 @@ export default {
     }
   },
 
+  displayTotal(game, resetTotal) {
+    $(`#${game.currentPlayer} .game-score span`).text(resetTotal);
+  },
+
+  resetRound() {
+    $('.round-score span').text('0');
+  },
+
   valueMessage(game, currentElement) {
     if (currentElement === 'BANKRUPT') {
       $('.pop-up-message').text(`You just lost All The Money`);
@@ -107,11 +115,6 @@ export default {
     $('.pop-up-message').text('Welcome to the next round!');
     $('.round span').text(`${game.currentRound + 1}`)
   }
-
-  // disableWheel() {
-  //   $('#wheel-button').prop('disabled', true);
-  // },
-
 }
 
 
