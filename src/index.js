@@ -24,7 +24,7 @@ $('.start-button').on('click', function(e) {
 
 $('#guess-button').on('click', function(e) {
   e.preventDefault();
-  game.puzzles[0].checkGuess(game);
+  game.puzzles[game.currentRound].checkGuess(game);
   $('#vowel-button').prop('disabled', false);
   $('#solve-button').prop('disabled', false);
   domUpdates.clearInput();
@@ -32,19 +32,19 @@ $('#guess-button').on('click', function(e) {
 
 $('#vowel-button').on('click', function(e) {
   e.preventDefault();
-  game.puzzles[0].checkVowel(game);
+  game.puzzles[game.currentRound].checkVowel(game);
   domUpdates.clearInput();
 })
 
 $('#solve-button').on('click', function(e) {
   e.preventDefault();
-  game.puzzles[0].checkSolve(game);
+  game.puzzles[game.currentRound].checkSolve(game);
   domUpdates.clearInput();
 })
 
 $('.wheel').on('click', function(e) {
   e.preventDefault();
-  game.wheels[0].spin(game);
+  game.wheels[game.currentRound].spin(game);
   $('#guess-button').prop('disabled', false);
   $('#solve-button').prop('disabled', true);
   $('#vowel-button').prop('disabled', true);

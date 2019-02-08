@@ -37,7 +37,7 @@ class Puzzle {
       this.guessedLetters.push(letter);
       domUpdates.changeLetter(letter);
       domUpdates.correctMessage();
-      let passValue =  game.wheels[0].currentValue;
+      let passValue =  game.wheels[game.currentRound].currentValue;
       domUpdates.disableGuess();
       game.players[0].updateScore(game, passValue);
     } else {
@@ -80,6 +80,7 @@ class Puzzle {
     const solveAttempt = $('#solve-input').val().toUpperCase();
     if (solveAttempt === puzzleAnswer) {
       domUpdates.winnerMessage();
+      game.updateRound(game);
     } else {
       domUpdates.wrongMessage();
       game.updatePlayerTurn()
