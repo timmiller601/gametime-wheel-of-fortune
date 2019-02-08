@@ -60,12 +60,7 @@ export default {
   },
 
   displayScore(game, playerScore) {
-    // if (playerScore === 'BANKRUPT' || playerScore === 'LOSE A TURN') {
-    //   $(`#${game.currentPlayer} .round-score span`).text(`${game.players[game.currentPlayer].roundScore}`);
-    //   return;
-    // } else {
     $(`#${game.currentPlayer} .round-score span`).text(playerScore);
-    // }
   },
 
   displayTotal(game, resetTotal) {
@@ -76,15 +71,19 @@ export default {
     $('.round-score span').text('0');
   },
 
+  hideStartScreen() {
+    $('.landing-page').hide();
+    $('header').removeClass('hidden');
+    $('main').removeClass('hidden');
+  },
+
+  changePlayer(playerIndex) {
+    $('.player').removeClass('current-player');
+    $(`#${playerIndex}`).addClass('current-player');
+  },
+
   valueMessage(game, currentElement) {
-    // if (currentElement === 'BANKRUPT') {
-    //   $('.pop-up-message').text(`You just lost All The Money`);
-    // } 
-    // if (currentElement === 'LOSE A TURN') {
-    //   $('.pop-up-message').text(`Wow you suck - lost your turn.`);
-    // } else {
       $('.pop-up-message').text( `This spin is worth ${currentElement}`)
-    // }
   },
 
   displayBankrupt() {
@@ -95,28 +94,16 @@ export default {
     $('.pop-up-message').text(`Wow you suck - lost your turn.`);
   },
 
-  hideStartScreen() {
-    $('.landing-page').hide();
-    $('header').removeClass('hidden');
-    $('main').removeClass('hidden');
-  },
-
-
-  changePlayer(playerIndex) {
-    $('.player').removeClass('current-player');
-    $(`#${playerIndex}`).addClass('current-player');
-  },
-
-  winnerMessage() {
-    $('.pop-up-message').text('WINNER WINNER CHICKEN DINNER!!!!')
-  },
-
   alreadyGuessedMessage() {
     $('.pop-up-message').text('That letter has already been guessed. Try again.')
   },
 
   mustSpinMessage() {
     $('.pop-up-message').text('You have to spin the wheel before you can guess.');
+  },
+
+  winnerMessage() {
+    $('.pop-up-message').text('WINNER WINNER CHICKEN DINNER!!!!')
   },
 
   mustSpin() {
@@ -131,6 +118,10 @@ export default {
     $('#guess-button').prop('disabled', true);
     $('#vowel-button').prop('disabled', false);
     $('#solve-button').prop('disabled', false);
+  },
+
+  disableGuess() {
+    $('#guess-button').prop('disabled', true);
   },
 
   mustGuess() {

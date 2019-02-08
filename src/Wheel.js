@@ -8,11 +8,9 @@ class Wheel {
 
   spin(game) {
     this.currentValue = this.wheel[Math.floor(Math.random() * this.wheel.length)];
-    console.log(this.currentValue);
     if (this.currentValue === 'BANKRUPT') {
       game.players[game.currentPlayer].removeMoney(game);
       domUpdates.displayBankrupt();
-      // domUpdates.disableGuess();
       game.updatePlayerTurn(this);
       return;
     }

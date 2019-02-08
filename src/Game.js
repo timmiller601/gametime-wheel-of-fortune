@@ -113,7 +113,6 @@ class Game {
       domUpdates.mustSpin();
       domUpdates.clearBoard(game);
       domUpdates.changePuzzle(game);
-      console.log(game);
     }
   }
 

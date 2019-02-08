@@ -35,14 +35,12 @@ class Puzzle {
       domUpdates.changeLetter(letter);
       domUpdates.correctMessage();
       let passValue =  game.wheels[game.currentRound].currentValue;
-      // domUpdates.disableGuess();
       game.players[game.currentPlayer].updateScore(game, passValue);
     } else {
       this.guessedLetters.push(letter);
       domUpdates.wrongLetter(letter);
       game.updatePlayerTurn(game.wheels[game.currentRound]);
       domUpdates.wrongMessage();
-      // domUpdates.disableGuess();
     }
   }
   
