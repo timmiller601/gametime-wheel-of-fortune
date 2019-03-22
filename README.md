@@ -9,9 +9,6 @@ This project was an opportunity to explore the use of ES6 classes and object ori
 git clone: https://github.com/timmiller601/gametime-wheel-of-fortune.git
 npm install from the project directory 
 
-## Play 
-https://timmiller601.github.io/gametime-wheel-of-fortune/
-
 ## Contributors 
 - Taylor Sperry
 - Tim Miller 
